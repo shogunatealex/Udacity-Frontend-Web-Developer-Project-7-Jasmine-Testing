@@ -79,7 +79,7 @@ $(function() {
             $content2 = $(".entry > h2").first().text();
             done();
           });
-        })
+        });
 
 
       });
