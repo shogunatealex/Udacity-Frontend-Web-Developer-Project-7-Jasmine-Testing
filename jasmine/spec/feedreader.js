@@ -29,12 +29,14 @@ $(function() {
 
         it('urls are defined', function(){
           for (var i = 0; i < allFeeds.length; i++){
+            expect(allFeeds[i].url).toBeDefined("length");
             expect(allFeeds[i].url.length > 0).toBe(true);
           }
         });
 
         it('names are defined', function(){
           for (var i = 0; i < allFeeds.length; i++){
+            expect(allFeeds[i].name).toBeDefined("name");
             expect(allFeeds[i].name.length > 0).toBe(true);
           }
         });
@@ -69,7 +71,7 @@ $(function() {
 
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function(){
-      var $content1, $content2;
+      var $content1, $content2
       beforeEach(function(done){
         $content1 = $(".entry")[0];
         loadFeed(1,function(){
