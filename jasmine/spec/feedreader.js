@@ -29,14 +29,14 @@ $(function() {
 
         it('urls are defined', function(){
           for (var i = 0; i < allFeeds.length; i++){
-            expect(allFeeds[i].url).toBeDefined("length");
+            expect(allFeeds[i].url).toBeDefined();
             expect(allFeeds[i].url.length > 0).toBe(true);
           }
         });
 
         it('names are defined', function(){
           for (var i = 0; i < allFeeds.length; i++){
-            expect(allFeeds[i].name).toBeDefined("name");
+            expect(allFeeds[i].name).toBeDefined();
             expect(allFeeds[i].name.length > 0).toBe(true);
           }
         });
@@ -65,7 +65,7 @@ $(function() {
         });
         });
         it('single .entry element or more',function(){
-          expect($('.entry').length > 0).toBe(true);
+          expect($('.feed .entry').length > 0).toBe(true);
       });
     });
 
@@ -73,14 +73,19 @@ $(function() {
     describe('New Feed Selection', function(){
       var $content1, $content2;
       beforeEach(function(done){
-        $content1 = $(".entry")[0];
-        loadFeed(1,function(){
-          $content2 = $(".entry")[0];
-          done();
-        });
+        loadFeed(0,function(){
+          $content1 = $(".entry > h2").first().text();
+          loadFeed(1,function(){
+            $content2 = $(".entry > h2").first().text();
+            done();
+          });
+        })
+
+
       });
       it('content should change when new feed is loaded', function(){
-          console.log($(".entry")[0]);
+          console.log($content1);
+          console.log($content2);
           expect($content1 != $content2).toBe(true);
     });
 
