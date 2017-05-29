@@ -47,7 +47,7 @@ $(function() {
     describe('The menu', function() {
       it('menu is hidden by default', function(){
         expect($('body').hasClass("menu-hidden")).toBe(true);
-      })
+      });
 
       it('menu changes visibilty when clicked', function(){
         $('.menu-icon-link').trigger("click");
@@ -66,12 +66,12 @@ $(function() {
         });
         it('single .entry element or more',function(){
           expect($('.entry').length > 0).toBe(true);
-      })
+      });
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function(){
-      var $content1, $content2
+      var $content1, $content2;
       beforeEach(function(done){
         $content1 = $(".entry")[0];
         loadFeed(1,function(){
